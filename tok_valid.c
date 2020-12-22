@@ -18,7 +18,7 @@ void tok_valid(char *tok_num, unsigned int line_number)
 				neg = 1;
 			if ((tok_num[i] < 48 || tok_num[i] > 57) && tok_num[0] != 45)
 			{
-				fprintf(stderr, "L%i: usageHOLA: push integer\n", line_number);
+				fprintf(stderr, "L%i: usage: push integer\n", line_number);
 				exit(EXIT_FAILURE);
 			}
 		}
@@ -27,7 +27,7 @@ void tok_valid(char *tok_num, unsigned int line_number)
 		{
 			if (tok_num[i] < 48 || tok_num[i] > 57)
 			{
-				fprintf(stderr, "L%i: usageHOLA: push integer\n", line_number);
+				fprintf(stderr, "L%i: usage: push integer\n", line_number);
 				exit(EXIT_FAILURE);
 			}
 			else
