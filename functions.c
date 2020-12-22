@@ -13,6 +13,7 @@ int find_op(stack_t **stack, char *tok_op, unsigned int line_number)
 		{"push", fpush},
 		{"pint", fpint},
 		{"pop", fpop},
+		{"swap", fswap},
 		{NULL, NULL}
 	};
 	int i = 0;
@@ -32,7 +33,7 @@ int find_op(stack_t **stack, char *tok_op, unsigned int line_number)
 }
 
 /**
- * fpush - point of entry.
+ * fpush - pushes an element to the stack
  * @stack: list where values will be stored
  * @line_number: number of line being read. In case of error
  * Return: void
