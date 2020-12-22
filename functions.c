@@ -11,6 +11,7 @@ int find_op(stack_t **stack, char *tok_op, unsigned int line_number)
 	instruction_t options[] = {
 		{"pall", fpall},
 		{"push", fpush},
+		{"pint", fpint},
 		{NULL, NULL}
 	};
 	int i = 0;
@@ -62,7 +63,7 @@ void fpush(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * fpall - point of entry.
+ * fpall - prints stack LIFO
  * @stack: list where values will be stored
  * @line_number: number of line being read. In case of error
  * Return: void
@@ -83,4 +84,22 @@ void fpall(stack_t **stack, unsigned int line_number)
 		printf("%d\n", temp->n);
 		temp = temp->next;
 	}
+}
+/**
+ * fpint - prints value at top of stack.
+ * @stack: list where values will be stored
+ * @line_number: number of line being read. In case of error
+ * Return: void
+ */
+void fpint(stack_t **stack, unsigned int line_number)
+{
+	stack_t *temp = *stack;
+
+	if (stack == NULL)
+	{
+		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
+		free_list(*stack);
+		exit(EXIT_FAILURE);
+	}
+	printf("%d\n", temp->n);
 }

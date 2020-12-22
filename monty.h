@@ -43,5 +43,6 @@ void tok_valid(char *tok_num, unsigned int line_number);
 int find_op(stack_t **stack, char *tok_op, unsigned int line_number);
 void fpush(stack_t **stack, unsigned int line_number);
 void fpall(stack_t **stack, unsigned int line_number);
+void fpint(stack_t **stack, unsigned int line_number);
 void free_list(stack_t *stack);
 #endif
