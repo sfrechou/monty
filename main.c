@@ -31,20 +31,16 @@ int main(int argc, char *argv[])
 		tok_num = strtok(NULL, " \t\n\r");
 
 		if (strcmp(tok_op, "push") == 0)
-		{
 			tok_valid(tok_num, line_number);
-		}
 
 		if (find_op(&stack, tok_op, line_number) == 1)
 		{
 			fprintf(stderr, "L%i: unknown instruction %s\n", line_number, tok_op);
-			free(line_buf);
 			exit(EXIT_FAILURE);
 		};
 		line_number++;
 	}
 	free(line_buf);
-	line_buf = NULL;
 	free_list(stack);
 	fclose(file);
 	exit(EXIT_SUCCESS);
