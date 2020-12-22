@@ -22,14 +22,23 @@ void tok_valid(char *tok_num, unsigned int line_number)
 				exit(EXIT_FAILURE);
 			}
 		}
+		i = 0;
 		if (neg == 1)
 		{
-			for (j = 1, k = 0; tok_num[j] != '\0'; k++, j++)
+			if (tok_num[i] < 48 || tok_num[i] > 57)
 			{
-				absolute[k] = tok_num[j];
+				fprintf(stderr, "L%i: usageHOLA: push integer\n", line_number);
+				exit(EXIT_FAILURE);
 			}
-			num = atoi(absolute);
-			gnumber = num * -1;
+			else
+			{
+				for (j = 1, k = 0; tok_num[j] != '\0'; k++, j++)
+				{
+					absolute[k] = tok_num[j];
+				}
+				num = atoi(absolute);
+				gnumber = num * -1;
+			}
 		}
 		else
 		{
