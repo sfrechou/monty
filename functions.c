@@ -37,7 +37,11 @@ void fpush(stack_t **stack, unsigned int line_number)
 {
 	stack_t *newnode;
 	(void)line_number;
-
+	if (stack == NULL)
+	{
+		free_list(*stack);
+		exit(EXIT_FAILURE);
+	}
 	newnode = malloc(sizeof(stack_t));
 
 	if (newnode == NULL)
@@ -66,11 +70,15 @@ void fpall(stack_t **stack, unsigned int line_number)
 	stack_t *temp;
 
 	(void)line_number;
+	if (stack == NULL)
+	{
+		free_list(*stack);
+		exit(EXIT_FAILURE);
+	}
 	temp = *stack;
 	while (temp != NULL)
 	{
 		printf("%d\n", temp->n);
 		temp = temp->next;
 	}
-	free_list(*stack);
 }

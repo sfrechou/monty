@@ -36,8 +36,9 @@ int main(int argc, char *argv[])
 		if (find_op(&stack, tok_op, line_number) == 1)
 		{
 			fprintf(stderr, "L%i: unknown instruction %s\n", line_number, tok_op);
+			free_list(stack);
 			exit(EXIT_FAILURE);
-		};
+		}
 		line_number++;
 	}
 	free(line_buf);
