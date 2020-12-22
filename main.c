@@ -29,6 +29,11 @@ int main(int argc, char *argv[])
 	{
 		tok_op = strtok(line_buf, " \t\n\r");
 		tok_num = strtok(NULL, " \t\n\r");
+		if (tok_op[0] == '\n')
+		{
+			line_number++;
+			continue;
+		}
 
 		if (strcmp(tok_op, "push") == 0)
 			tok_valid(tok_num, line_number);
