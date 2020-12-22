@@ -12,6 +12,7 @@ int find_op(stack_t **stack, char *tok_op, unsigned int line_number)
 		{"pall", fpall},
 		{"push", fpush},
 		{"pint", fpint},
+		{"pop", fpop},
 		{NULL, NULL}
 	};
 	int i = 0;
@@ -102,4 +103,28 @@ void fpint(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	printf("%d\n", temp->n);
+}
+
+/**
+ * fpop - prints value at top of stack.
+ * @stack: list where values will be stored
+ * @line_number: number of line being read. In case of error
+ * Return: void
+ */
+void fpop(stack_t **stack, unsigned int line_number)
+{
+	stack_t *temp = *stack;
+
+	if (stack == NULL)
+	{
+		fprintf(stderr, "L%d: can't pop, stack empty\n", line_number);
+		free_list(*stack);
+		exit(EXIT_FAILURE);
+	}
+	*stack = temp->next;
+	if (temp->next != NULL)
+	{
+		temp->next->prev = NULL;
+	}
+	free(temp);
 }
