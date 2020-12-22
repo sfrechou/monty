@@ -20,9 +20,9 @@ extern int gnumber;
  */
 typedef struct stack_s
 {
-        int n;
-        struct stack_s *prev;
-        struct stack_s *next;
+		int n;
+		struct stack_s *prev;
+		struct stack_s *next;
 } stack_t;
 /**
  * struct instruction_s - opcode and its function
@@ -34,12 +34,14 @@ typedef struct stack_s
  */
 typedef struct instruction_s
 {
-        char *opcode;
-        void (*f)(stack_t **stack, unsigned int line_number);
+		char *opcode;
+		void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-void find_op(stack_t **stack, char *tok_op, unsigned int line_number);
+void check_args(int argc);
+void tok_valid(char *tok_num, unsigned int line_number);
+int find_op(stack_t **stack, char *tok_op, unsigned int line_number);
 void fpush(stack_t **stack, unsigned int line_number);
 void fpall(stack_t **stack, unsigned int line_number);
-
+void free_list(stack_t *stack);
 #endif
