@@ -24,7 +24,9 @@ int find_op(stack_t **stack, char *tok_op, unsigned int line_number)
 		}
 		i++;
 	}
-	return (1);
+	fprintf(stderr, "L%i: unknown instruction %s\n", line_number, tok_op);
+	free_list(*stack);
+	exit(EXIT_FAILURE);
 }
 
 /**
