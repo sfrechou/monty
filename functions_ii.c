@@ -12,10 +12,9 @@ void fswap(stack_t **stack, unsigned int line_number)
 
 	while (len->next != NULL)
 	{
-		len = len->next;
 		count++;
+		len = len->next;
 	}
-	count++;
 	if (count < 2)
 	{
 		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
@@ -37,7 +36,7 @@ void fswap(stack_t **stack, unsigned int line_number)
 void fadd(stack_t **stack, unsigned int line_number)
 {
 	stack_t *len = *stack, *temp = *stack, *aux;
-	int count = 1, add = 0;
+	int count = 0, add = 0;
 
 	while (len->next != NULL)
 	{
@@ -79,7 +78,7 @@ void fnop(stack_t **stack, unsigned int line_number)
 void fsub(stack_t **stack, unsigned int line_number)
 {
 	stack_t *len = *stack, *temp = *stack, *aux;
-	int count = 1, add = 0;
+	int count = 0, add = 0;
 
 	while (len->next != NULL)
 	{
@@ -109,7 +108,7 @@ void fsub(stack_t **stack, unsigned int line_number)
 void fdiv(stack_t **stack, unsigned int line_number)
 {
 	stack_t *len = *stack, *temp = *stack, *aux;
-	int count = 1, add = 0;
+	int count = 0, add = 0;
 
 	while (len->next != NULL)
 	{

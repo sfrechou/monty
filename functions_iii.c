@@ -8,7 +8,7 @@
 void fmul(stack_t **stack, unsigned int line_number)
 {
 	stack_t *len = *stack, *temp = *stack, *aux;
-	int count = 1, add = 0;
+	int count = 0, add = 0;
 
 	while (len->next != NULL)
 	{
@@ -17,7 +17,13 @@ void fmul(stack_t **stack, unsigned int line_number)
 	}
 	if (count < 2)
 	{
-		fprintf(stderr, "L%d: can't mul, stack too short\n", line_number);
+		fprintf(stderr, "L%d: can't mod, stack too short\n", line_number);
+		free_list(*stack);
+		exit(EXIT_FAILURE);
+	}
+	if ((*stack)->n == 0)
+	{
+		fprintf(stderr, "L%d: division by zero\n", line_number);
 		free_list(*stack);
 		exit(EXIT_FAILURE);
 	}
@@ -38,7 +44,7 @@ void fmul(stack_t **stack, unsigned int line_number)
 void fmodu(stack_t **stack, unsigned int line_number)
 {
 	stack_t *len = *stack, *temp = *stack, *aux;
-	int count = 1, add = 0;
+	int count = 0, add = 0;
 
 	while (len->next != NULL)
 	{
@@ -47,7 +53,7 @@ void fmodu(stack_t **stack, unsigned int line_number)
 	}
 	if (count < 2)
 	{
-		fprintf(stderr, "L%d: can't mul, stack too short\n", line_number);
+		fprintf(stderr, "L%d: can't mod, stack too short\n", line_number);
 		free_list(*stack);
 		exit(EXIT_FAILURE);
 	}
