@@ -35,28 +35,24 @@ void fswap(stack_t **stack, unsigned int line_number)
  */
 void fadd(stack_t **stack, unsigned int line_number)
 {
-	stack_t *len = *stack, *temp = *stack, *aux;
-	int count = 1, add = 0;
+	stack_t *temp;
+	unsigned int add = 0;
+	size_t len = 0;
 
-	while (len->next != NULL)
-	{
-		count++;
-		len = len->next;
-	}
-	if (count < 2)
+	len = stack_tlen(stack);
+
+	if (len < 2)
 	{
 		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
-		free(len);
-		free(temp);
 		free_list(*stack);
 		exit(EXIT_FAILURE);
 	}
-	add = temp->n + temp->next->n;
-	aux = temp;
-	(*stack) = temp->next;
+	add = (*stack)->n + (*stack)->next->n;
+	temp = *stack;
+	(*stack) = (*stack)->next;
 	(*stack)->n = add;
 	(*stack)->prev = NULL;
-	free(aux);
+	free(temp);
 }
 
 /**
@@ -121,7 +117,7 @@ void fdiv(stack_t **stack, unsigned int line_number)
 		free_list(*stack);
 		exit(EXIT_FAILURE);
 	}
-	if ((*stack)->n != 0)
+	if ((*stack)->n == 0)
 	{
 		fprintf(stderr, "L%d: division by zero\n", line_number);
 		free_list(*stack);

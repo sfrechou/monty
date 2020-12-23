@@ -1,10 +1,9 @@
 #include "monty.h"
 /**
- * dlistint_len - function that prints number of elements in list
+ * stack_tlen - function that prints number of elements in list
  * @h: pointer to list to print
  *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
+ * Return: elements in list
  */
 size_t stack_tlen(stack_t **h)
 {
