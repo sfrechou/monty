@@ -8,7 +8,7 @@
 void fswap(stack_t **stack, unsigned int line_number)
 {
 	sstack_t *temp;
-	unsigned int add = 0;
+	unsigned int swap = 0;
 	size_t len = 0;
 
 	len = stack_tlen(stack);
