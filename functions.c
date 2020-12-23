@@ -118,18 +118,14 @@ void fpint(stack_t **stack, unsigned int line_number)
  */
 void fpop(stack_t **stack, unsigned int line_number)
 {
-	stack_t *temp = *stack;
-
 	if (*stack == NULL)
 	{
 		fprintf(stderr, "L%d: can't pop, stack empty\n", line_number);
 		free_list(*stack);
 		exit(EXIT_FAILURE);
 	}
-	*stack = temp->next;
-	if (temp->next != NULL)
+	if ((*stack)->next != NULL)
 	{
-		temp->next->prev = NULL;
+		(*stack)->next->prev = NULL;
 	}
-	free(temp);
 }
