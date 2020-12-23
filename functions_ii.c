@@ -92,7 +92,7 @@ void fsub(stack_t **stack, unsigned int line_number)
 		free_list(*stack);
 		exit(EXIT_FAILURE);
 	}
-	add = temp->n - temp->next->n;
+	add = temp->next->n - temp->n;
 	aux = temp;
 	(*stack) = temp->next;
 	(*stack)->n = add;
