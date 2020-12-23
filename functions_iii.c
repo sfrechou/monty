@@ -30,27 +30,22 @@ size_t stack_tlen(stack_t **h)
  */
 void fmul(stack_t **stack, unsigned int line_number)
 {
-	stack_t *len = *stack, *temp = *stack, *aux;
-	int count = 1, add = 0;
+	unsigned int mul = 0;
+	size_t len = 0;
 
-	while (len->next != NULL)
-	{
-		count++;
-		len = len->next;
-	}
-	if (count < 2)
+	len = stack_tlen(stack);
+
+	if (len < 2)
 	{
 		fprintf(stderr, "L%d: can't mul, stack too short\n", line_number);
 		free_list(*stack);
 		exit(EXIT_FAILURE);
 	}
 
-	add = temp->next->n * temp->n;
-	aux = temp;
-	(*stack) = temp->next;
-	(*stack)->n = add;
+	mul = (*stack)->next->n * (*stack)->n;
+	(*stack) = (*stack)->next;
+	(*stack)->n = mul;
 	(*stack)->prev = NULL;
-	free(aux);
 }
 
 /**
