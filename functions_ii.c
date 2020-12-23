@@ -7,15 +7,13 @@
  */
 void fswap(stack_t **stack, unsigned int line_number)
 {
-	stack_t *len = *stack, *temp = *stack;
-	int count = 1, swap = 0;
+	sstack_t *temp;
+	unsigned int add = 0;
+	size_t len = 0;
 
-	while (len->next != NULL)
-	{
-		count++;
-		len = len->next;
-	}
-	if (count < 2)
+	len = stack_tlen(stack);
+
+	if (len < 2)
 	{
 		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
 		free(len);
