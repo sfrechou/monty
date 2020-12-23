@@ -43,7 +43,7 @@ void fmul(stack_t **stack, unsigned int line_number)
  */
 void fmodu(stack_t **stack, unsigned int line_number)
 {
-	stack_t *len = *stack, *temp = *stack, *aux;
+	stack_t *len = *stack, *temp = *stack;
 	int count = 1, add = 0;
 
 	while (len->next != NULL)
@@ -58,9 +58,7 @@ void fmodu(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	add = temp->next->n % temp->n;
-	aux = temp;
 	(*stack) = temp->next;
 	(*stack)->n = add;
 	(*stack)->prev = NULL;
-	free(aux);
 }
