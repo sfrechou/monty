@@ -57,3 +57,15 @@ void fadd(stack_t **stack, unsigned int line_number)
 	(*stack)->prev = NULL;
 	free(aux);
 }
+
+/**
+ * fnop - does not do anything
+ * @stack: list where values will be stored
+ * @line_number: number of line being read. In case of error
+ * Return: void
+ */
+void fnop(stack_t **stack, unsigned int line_number)
+{
+	(void) *stack;
+	(void) line_number;
+}
