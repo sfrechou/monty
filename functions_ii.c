@@ -70,26 +70,24 @@ void fnop(stack_t **stack, unsigned int line_number)
  */
 void fsub(stack_t **stack, unsigned int line_number)
 {
-	stack_t *len = *stack, *temp = *stack, *aux;
-	int count = 1, add = 0;
+	stack_t *temp;
+	unsigned int sub = 0;
+	size_t len = 0;
 
-	while (len->next != NULL)
-	{
-		count++;
-		len = len->next;
-	}
-	if (count < 2)
+	len = stack_tlen(stack);
+
+	if (len < 2)
 	{
 		fprintf(stderr, "L%d: can't sub, stack too short\n", line_number);
 		free_list(*stack);
 		exit(EXIT_FAILURE);
 	}
-	add = temp->next->n - temp->n;
-	aux = temp;
-	(*stack) = temp->next;
-	(*stack)->n = add;
+	sub = (*stack)->n + (*stack)->next->n;
+	temp = *stack;
+	(*stack) = (*stack)->next;
+	(*stack)->n = sub;
 	(*stack)->prev = NULL;
-	free(aux);
+	free(temp);
 }
 
 /**
