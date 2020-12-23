@@ -14,6 +14,7 @@ int find_op(stack_t **stack, char *tok_op, unsigned int line_number)
 		{"pint", fpint},
 		{"pop", fpop},
 		{"swap", fswap},
+		{"add", fadd},
 		{NULL, NULL}
 	};
 	int i = 0;
