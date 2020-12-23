@@ -8,7 +8,7 @@
 void fswap(stack_t **stack, unsigned int line_number)
 {
 	stack_t *len = *stack, *temp = *stack;
-	int count = 0, swap = 0;
+	int count = 1, swap = 0;
 
 	while (len->next != NULL)
 	{
@@ -36,7 +36,7 @@ void fswap(stack_t **stack, unsigned int line_number)
 void fadd(stack_t **stack, unsigned int line_number)
 {
 	stack_t *len = *stack, *temp = *stack, *aux;
-	int count = 0, add = 0;
+	int count = 1, add = 0;
 
 	while (len->next != NULL)
 	{
@@ -78,7 +78,7 @@ void fnop(stack_t **stack, unsigned int line_number)
 void fsub(stack_t **stack, unsigned int line_number)
 {
 	stack_t *len = *stack, *temp = *stack, *aux;
-	int count = 0, add = 0;
+	int count = 1, add = 0;
 
 	while (len->next != NULL)
 	{
@@ -108,7 +108,7 @@ void fsub(stack_t **stack, unsigned int line_number)
 void fdiv(stack_t **stack, unsigned int line_number)
 {
 	stack_t *len = *stack, *temp = *stack, *aux;
-	int count = 0, add = 0;
+	int count = 1, add = 0;
 
 	while (len->next != NULL)
 	{

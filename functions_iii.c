@@ -8,7 +8,7 @@
 void fmul(stack_t **stack, unsigned int line_number)
 {
 	stack_t *len = *stack, *temp = *stack, *aux;
-	int count = 0, add = 0;
+	int count = 1, add = 0;
 
 	while (len->next != NULL)
 	{
@@ -44,7 +44,7 @@ void fmul(stack_t **stack, unsigned int line_number)
 void fmodu(stack_t **stack, unsigned int line_number)
 {
 	stack_t *len = *stack, *temp = *stack, *aux;
-	int count = 0, add = 0;
+	int count = 1, add = 0;
 
 	while (len->next != NULL)
 	{
