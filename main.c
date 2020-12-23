@@ -34,6 +34,8 @@ int main(int argc, char *argv[])
 			line_number++;
 			continue;
 		}
+		if (tok_op[0] == 35)
+			continue;
 
 		if (strcmp(tok_op, "push") == 0)
 			tok_valid(tok_num, line_number);
