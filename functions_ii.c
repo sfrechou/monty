@@ -7,7 +7,6 @@
  */
 void fswap(stack_t **stack, unsigned int line_number)
 {
-	sstack_t *temp;
 	unsigned int swap = 0;
 	size_t len = 0;
 
@@ -16,14 +15,12 @@ void fswap(stack_t **stack, unsigned int line_number)
 	if (len < 2)
 	{
 		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
-		free(len);
-		free(temp);
 		free_list(*stack);
 		exit(EXIT_FAILURE);
 	}
-	swap = temp->n;
-	temp->n = temp->next->n;
-	temp->next->n = swap;
+	swap = (*stack)->n;
+	(*stack)->n = (*stack)->next->n;
+	(*stack)->next->n = swap;
 }
 /**
  * fadd - adds first two elements of stack. Stores result in elm2, deletes elm1
