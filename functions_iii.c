@@ -23,7 +23,7 @@ size_t stack_tlen(stack_t **h)
 	return (elements);
 }
 /**
- * fmul - multiplies first two elements of stack. Stores result in elm2, deletes elm1
+ * fmul - multiplies first two elements of stack.
  * @stack: list where values will be stored
  * @line_number: number of line being read. In case of error
  * Return: void
@@ -54,7 +54,7 @@ void fmul(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * fmodu - multiplies first two elements of stack. Stores result in elm2, deletes elm1
+ * fmodu - multiplies first two elements of stack
  * @stack: list where values will be stored
  * @line_number: number of line being read. In case of error
  * Return: void
