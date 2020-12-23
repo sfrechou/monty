@@ -116,9 +116,15 @@ void fdiv(stack_t **stack, unsigned int line_number)
 		count++;
 		len = len->next;
 	}
-	if (count < 2 || (*stack)->n == 0)
+	if (count < 2)
 	{
 		fprintf(stderr, "L%d: can't div, stack too short\n", line_number);
+		free_list(*stack);
+		exit(EXIT_FAILURE);
+	}
+	if ((*stack)->n == 0)
+	{
+		fprintf(stderr, "L%d: division by zero\n", line_number);
 		free_list(*stack);
 		exit(EXIT_FAILURE);
 	}
