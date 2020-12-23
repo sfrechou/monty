@@ -120,7 +120,7 @@ void fpop(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp = *stack;
 
-	if (stack == NULL)
+	if (*stack == NULL)
 	{
 		fprintf(stderr, "L%d: can't pop, stack empty\n", line_number);
 		free_list(*stack);
