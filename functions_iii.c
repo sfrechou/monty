@@ -30,6 +30,7 @@ size_t stack_tlen(stack_t **h)
  */
 void fmul(stack_t **stack, unsigned int line_number)
 {
+	stack_t *temp;
 	unsigned int mul = 0;
 	size_t len = 0;
 
@@ -43,9 +44,11 @@ void fmul(stack_t **stack, unsigned int line_number)
 	}
 
 	mul = (*stack)->next->n * (*stack)->n;
+	temp = *stack;
 	(*stack) = (*stack)->next;
 	(*stack)->n = mul;
 	(*stack)->prev = NULL;
+	free(temp);
 }
 
 /**
