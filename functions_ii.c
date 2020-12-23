@@ -36,15 +36,14 @@ void fswap(stack_t **stack, unsigned int line_number)
  */
 void fadd(stack_t **stack, unsigned int line_number)
 {
-	stack_t *len = *stack, *temp = *stack;
-	int count = 0, add = 0;
+	stack_t *len = *stack, *temp = *stack, *aux;
+	int count = 1, add = 0;
 
 	while (len->next != NULL)
 	{
-		len = len->next;
 		count++;
+		len = len->next;
 	}
-	count++;
 	if (count < 2)
 	{
 		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
@@ -52,8 +51,9 @@ void fadd(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	add = temp->n + temp->next->n;
-	temp = temp->next;
-	temp->n = add;
-	temp->prev = NULL;
-	*stack = temp;
+	aux = temp;
+	(*stack) = temp->next;
+	(*stack)->n = add;
+	(*stack)->prev = NULL;
+	free(aux);
 }
