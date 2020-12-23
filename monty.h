@@ -48,5 +48,6 @@ void fpop(stack_t **stack, unsigned int line_number);
 void fswap(stack_t **stack, unsigned int line_number);
 void fadd(stack_t **stack, unsigned int line_number);
 void fnop(stack_t **stack, unsigned int line_number);
+void fsub(stack_t **stack, unsigned int line_number);
 void free_list(stack_t *stack);
 #endif
