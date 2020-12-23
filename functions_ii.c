@@ -68,7 +68,7 @@ void fnop(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * fsub - subtracts first two elements of stack. Stores result in elm2, deletes elm1
+ * fsub - subtracts first two elements of stack.
  * @stack: list where values will be stored
  * @line_number: number of line being read. In case of error
  * Return: void
@@ -98,7 +98,7 @@ void fsub(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * fdiv - divides the first two elements of stack. Stores result in elm2, deletes elm1
+ * fdiv - divides the first two elements of stack.
  * @stack: list where values will be stored
  * @line_number: number of line being read. In case of error
  * Return: void

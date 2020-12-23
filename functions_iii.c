@@ -8,17 +8,17 @@
 size_t stack_tlen(stack_t **h)
 {
 	size_t elements = 0;
-    stack_t *temp;
+	stack_t *temp;
 
 	if (*h == NULL)
 	{
 		return (elements);
 	}
-    temp = *h;
+	temp = *h;
 	while (temp != NULL)
 	{
 		temp = temp->next;
-        elements++;
+		elements++;
 	}
 	return (elements);
 }
@@ -44,7 +44,7 @@ void fmul(stack_t **stack, unsigned int line_number)
 		free_list(*stack);
 		exit(EXIT_FAILURE);
 	}
-	
+
 	add = temp->next->n * temp->n;
 	aux = temp;
 	(*stack) = temp->next;
@@ -75,7 +75,7 @@ void fmodu(stack_t **stack, unsigned int line_number)
 		free_list(*stack);
 		exit(EXIT_FAILURE);
 	}
-    if ((*stack)->n == 0)
+	if ((*stack)->n == 0)
 	{
 		fprintf(stderr, "L%d: division by zero\n", line_number);
 		free_list(*stack);
